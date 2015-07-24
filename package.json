@@ -1,0 +1,22 @@
+{
+  "name": "localenvironment",
+  "version": "1.0.0",
+  "description": "Apply environment variables if they exist in env.json.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --ui tdd test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com:coreybutler/localenvironment.git"
+  },
+  "keywords": [
+    "environment",
+    "local"
+  ],
+  "author": "Corey Butler <corey@coreybutler.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  }
+}
