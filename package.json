@@ -17,6 +17,6 @@
   "author": "Corey Butler <corey@coreybutler.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^5.2.0"
   }
 }
