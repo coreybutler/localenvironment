@@ -1,5 +1,7 @@
 # Local Environment
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/coreybutler/localenvironment.svg)](https://greenkeeper.io/)
+
 **tl;dr** Apply environment variables if they exist in env.json.
 
 **Install** `npm install localenvironment`
