@@ -1,13 +1,43 @@
+let environment = {}
+const fs = require('fs')
+const loadEnvironment = json => {
+  try {
+    let env = require(json)
+    
+    Object.keys(env).forEach(function (key) {
+      environment[key] = env[key].toString()
+      process.env[key] = env[key].toString()
+    })
 
-var fs = require('fs');
-var json = require('path').join(process.cwd(),'env.json'), preload = {};
-
-if (fs.existsSync(json)){
-  var env = require(json);
-  Object.keys(env).forEach(function(key){
-    preload[key] = env[key];
-    process.env[key] = env[key];
-  });
+    return null
+  } catch (e) {
+    return e
+  }
 }
 
-module.exports = preload;
+for (let route of ['env.json', '.env.json', '.env']) {
+  filepath = require('path').join(process.cwd(), route)
+
+  if (fs.existsSync(filepath)) {
+    let err = loadEnvironment(filepath)
+    if (err !== null) {
+      console.log('WARNING --> Configuration Problem: ' + e.message)
+    } else {
+      break
+    }
+  }
+}
+
+environment.load = (filename = null) => {
+  if (filename === null) {
+    return
+  }
+
+  let filepath = require('path').join(process.cwd(), filename)
+  
+  if (fs.existsSync(filepath)) {
+    loadEnvironment(filepath)
+  }
+}
+
+module.exports = environment

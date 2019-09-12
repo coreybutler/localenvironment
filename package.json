@@ -1,6 +1,6 @@
 {
   "name": "localenvironment",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Apply environment variables if they exist in env.json.",
   "main": "index.js",
   "scripts": {
@@ -12,11 +12,14 @@
   },
   "keywords": [
     "environment",
-    "local"
+    "local",
+    "configuration",
+    "config",
+    "variables"
   ],
   "author": "Corey Butler <corey@coreybutler.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "mocha": "^6.2.0"
   }
 }

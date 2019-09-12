@@ -1,16 +1,8 @@
 language: node_js
 node_js:
-- '4.2.6'
-- '6.0.0'
 - '8.0.0'
 - '10.0.0'
-notifications:
-  hipchat:
-    rooms:
-      secure: G86agoGJWFpnW+DIwoY0iZjTi4858qgZUnVSFKkz39zfeIFm/lnmcBG3MqLMzvkjFrj+qoofqAUUbycvA8ZE7FbX6+rOfChPpco14LM/cPWrltNuLEYGHA5ikLTrGXOQpy6HFx0MFxhDQc5GFZWoNOVZb8bRogyv1PZwS2AG7tQ=
-    template:
-    - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
-    format: html
+- '12.0.0'
 deploy:
   provider: npm
   email: corey@coreybutler.com
