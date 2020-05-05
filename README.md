@@ -29,6 +29,7 @@ The `index.js` file would look like:
 
 ```javascript
 require('localenvironment') // <-- This is all the code you need.
+import LE from 'localenvironment' // <-- ES Module variation of the line above
 
 console.log(process.env.MY_VARIABLE_1)
 console.log(process.env.MY_VARIABLE_2)
