@@ -42,7 +42,7 @@ jobs:
       if: steps.autotagger.outputs.tagname != ''
       uses: author/action-publish@stable
       with:
-        scan: ./dist
+        scan: ./
       env:
         REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
 
