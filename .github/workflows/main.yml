@@ -37,22 +37,6 @@ jobs:
         draft: false
         prerelease: env.IS_PRERELEASE != ''
 
-      # Build tarballs of the module code.
-    - name: Build Release Artifacts
-      id: build_release
-      if: steps.create_release.outputs.id != ''
-      run: |
-        dev build --pack
-        cp -rf .dist ./dist
-      # Upload tarballs to the release.
-    - name: Upload Release Artifacts
-      uses: AButler/upload-release-assets@v2.0
-      if: steps.create_release.outputs.id != ''
-      with:
-        files: '.dist/*.tar.gz'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        release-tag: ${{ steps.autotagger.outputs.tagname }}
-
     - name: Publish to npm
       id: publish_npm
       if: steps.autotagger.outputs.tagname != ''
