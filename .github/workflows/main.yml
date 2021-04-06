@@ -12,6 +12,8 @@ jobs:
     - uses: actions/checkout@master
 
     - uses: butlerlogic/action-autotag@stable
+      id: autotagger
+      if: success()
       with:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
