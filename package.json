@@ -1,6 +1,6 @@
 {
   "name": "localenvironment",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Apply environment variables if they exist in env.json.",
   "main": "index.js",
   "scripts": {
