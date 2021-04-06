@@ -1,10 +1,13 @@
 {
   "name": "localenvironment",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Apply environment variables if they exist in env.json.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --ui tdd test"
+  },
+  "bin": {
+    "localenvironment": "cli.js"
   },
   "repository": {
     "type": "git",

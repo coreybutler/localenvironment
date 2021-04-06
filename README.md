@@ -4,9 +4,11 @@
 
 ## Usage
 
-This module loads environment variables from a configuration file, _if the file exists_. Each attribute will be assigned to the `process.env` object. If the file does not exist, it does nothing (i.e. won't break the script). 
+This module loads environment variables from a configuration file, _if the file exists_. Each attribute will be assigned to the `process.env` object. If the file does not exist, it does nothing (i.e. won't break the script).
 
 As of version 1.1.0, the module looks for `env.json`, `.env.json`, and `.env` (expects JSON content). It is also possible to look for a file with a different name (see Custom Config section below). It only loads the first file it finds.
+
+As of version 1.2.0, a command line tool was included, allowing other executables to be run with the local environment variables pre-applied to the runtime (see "Executing Programs" section for details).
 
 Using the module is extremely simple (one line of JavaScript). Consider the following project directory:
 
@@ -93,6 +95,20 @@ This would output the following:
 ```
 
 This feature can be useful for understanding what was configured by the module and what wasn't.
+
+## Executing Programs
+
+There are occasions where other programs need to be executed from npm scripts, using local environment variables. For example, Cloudflare workers use the `wrangler` executable to create a test environment. The test environment requires an API secret to be available in the environment variables. Instead of embedding this value in an npm script, it can remain in a `env.json` file (which should be in `.gitignore`/not committed), localenvironment can run it with the variable applied dynamically.
+
+For example, consider a `package.json` file with the following npm script:
+
+`"test": "CF_API_TOKEN=plaintext_secret wrangler dev --env development"`
+
+The API token would be committed in plain text in this file, which should be avoided. Instead, assume `env.json` contains the `CF_API_TOKEN` value. This can be applied with the following npm script:
+
+`"test": "localenvironment wrangler dev --env development"`
+
+`localenvironment` loads the environment variables from the `env.json` file, then runs the `wrangler dev --env development` command with those environment variables.
 
 ---
 
